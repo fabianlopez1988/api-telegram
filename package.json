@@ -23,6 +23,7 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "github:nestjs/config",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^9.0.0",
     "dotenv": "^16.3.1",
     "firebase": "^9.23.0",
