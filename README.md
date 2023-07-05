@@ -1,9 +1,8 @@
 <p align="center">
   <img src="https://nestjs.com/img/logo-small.svg" alt="Nest Logo" width="200" />
 </p>
-# Telegram Bot with Firestore Integration
 
- 
+# Telegram Bot with Firestore Integration
 
 This project is an API application built with NestJS that integrates with the Telegram Bot API and utilizes Firebase Firestore for message storage. It provides RESTful endpoints to send, receive, update, and delete messages via the Telegram Bot API, with the messages being stored in Firestore.
 
