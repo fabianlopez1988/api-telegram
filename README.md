@@ -1,73 +1,67 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <img src="https://nestjs.com/img/logo-small.svg" alt="Nest Logo" width="200" />
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Telegram Bot with Firestore Integration
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This project is an API application built with NestJS that integrates with the Telegram Bot API and utilizes Firebase Firestore for message storage. It provides RESTful endpoints to send, receive, update, and delete messages via the Telegram Bot API, with the messages being stored in Firestore.
 
-## Description
+ 
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Features
+
+- Connects to the Telegram Bot API to send and receive messages.
+
+- Saves incoming messages to Firebase Firestore.
+
+- Provides RESTful endpoints for interacting with messages.
+
+- Supports CRUD operations (Create, Read, Update, Delete) for messages.
+
+ 
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+
+- NPM (Node Package Manager)
+
+- Firebase project with Firestore enabled
+
+- Telegram Bot API token
+
+ 
 
 ## Installation
 
-```bash
 $ npm install
-```
 
-## Running the app
+ 
 
-```bash
-# development
-$ npm run start
+## Getting Started
 
-# watch mode
-$ npm run start:dev
+1. Rename the .env.example file to .env.
 
-# production mode
-$ npm run start:prod
-```
+2. Update the .env file with your Firebase and Telegram Bot API credentials.
 
-## Test
+3. Run the application in development mode: `$ npm run start:dev`
 
-```bash
-# unit tests
-$ npm run test
+ 
 
-# e2e tests
-$ npm run test:e2e
+## API Endpoints
 
-# test coverage
-$ npm run test:cov
-```
+- GET /messages - Retrieve all messages.
 
-## Support
+- GET /messages/:id - Retrieve a specific message by ID.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- POST /messages - Create a new message.
 
-## Stay in touch
+- PUT /messages/:id - Update a message.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- DELETE /messages/:id - Delete a message.
+
+ 
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is MIT licensed.
