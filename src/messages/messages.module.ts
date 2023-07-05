@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { MessagesService } from './messages.service';
 import { MessagesController } from './messages.controller';
+import { FirestoreService } from 'src/firestore/firestore.service';
 
 @Module({
   controllers: [MessagesController],
-  providers: [MessagesService]
+  providers: [FirestoreService],
 })
 export class MessagesModule {}

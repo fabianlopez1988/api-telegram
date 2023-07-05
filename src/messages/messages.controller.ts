@@ -1,34 +1,44 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { MessagesService } from './messages.service';
-import { CreateMessageDto } from './dto/create-message.dto';
-import { UpdateMessageDto } from './dto/update-message.dto';
+import {
+  Controller,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+  Get,
+} from '@nestjs/common';
+import { FirestoreService } from '../firestore/firestore.service';
+import { Message } from './message.model';
 
 @Controller('messages')
 export class MessagesController {
-  constructor(private readonly messagesService: MessagesService) {}
-
-  @Post()
-  create(@Body() createMessageDto: CreateMessageDto) {
-    return this.messagesService.create(createMessageDto);
-  }
+  constructor(private readonly firestoreService: FirestoreService) {}
 
   @Get()
-  findAll() {
-    return this.messagesService.findAll();
+  async getAllMessages(): Promise<Message[]> {
+    return this.firestoreService.getAllMessages();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.messagesService.findOne(+id);
+  async getMessageById(@Param('id') id: string): Promise<Message> {
+    return this.firestoreService.getMessageById(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMessageDto: UpdateMessageDto) {
-    return this.messagesService.update(+id, updateMessageDto);
+  @Post()
+  async createMessage(@Body() message: Message): Promise<void> {
+    await this.firestoreService.saveMessage(message);
+  }
+
+  @Put(':id')
+  async updateMessage(
+    @Param('id') id: string,
+    @Body() message: Message,
+  ): Promise<void> {
+    await this.firestoreService.updateMessage(id, message);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.messagesService.remove(+id);
+  async deleteMessage(@Param('id') id: string): Promise<void> {
+    await this.firestoreService.deleteMessage(id);
   }
 }
