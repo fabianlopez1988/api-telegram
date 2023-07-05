@@ -1,4 +1,6 @@
-![Nest Logo](https://nestjs.com/img/logo-small.svg){: width="100"}
+<p align="center">
+  <img src="https://nestjs.com/img/logo-small.svg" alt="Nest Logo" width="200" />
+</p>
 # Telegram Bot with Firestore Integration
 
  
