@@ -1,7 +1,7 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import * as dotenv from 'dotenv';
 dotenv.config();
-import { FirestoreService } from '../firestore/firestore.service';
+import { FirestoreService } from '../messages/firestore/firestore.service';
 
 @Injectable()
 export class BotService implements OnModuleInit {
@@ -20,14 +20,14 @@ export class BotService implements OnModuleInit {
 
     const bot = new TelegramBot(token, { polling: true });
     bot.on('message', async (msg: any) => {
-      const chatId = msg.chat.id;
+      const id = msg.chat.id;
       const messageText = msg.text;
 
       try {
-        await this.firestoreService.saveMessage({ chatId, text: messageText });
-        bot.sendMessage(chatId, 'Mensaje guardado en Firestore.');
+        await this.firestoreService.saveMessage({ id, text: messageText });
+        bot.sendMessage(id, 'Mensaje guardado en Firestore.');
       } catch (error) {
-        bot.sendMessage(chatId, 'Error al guardar el mensaje en Firestore.');
+        bot.sendMessage(id, 'Error al guardar el mensaje en Firestore.');
       }
     });
   }

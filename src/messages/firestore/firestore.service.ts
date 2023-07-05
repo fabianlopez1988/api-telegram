@@ -35,7 +35,7 @@ export class FirestoreService {
     return message;
   }
 
-  async saveMessage(message: any): Promise<void> {
+  async saveMessage(message: Message): Promise<void> {
     try {
       await this.firestore.collection('messages').add(message);
     } catch (error) {
@@ -43,10 +43,10 @@ export class FirestoreService {
     }
   }
 
-  async updateMessage(id: string, updatedMessage: any): Promise<void> {
+  async updateMessage(id: string, updatedMessage: Message): Promise<void> {
     try {
       const messageRef = this.firestore.collection('messages').doc(id);
-      await messageRef.update(updatedMessage);
+      await messageRef.update({ ...updatedMessage });
     } catch (error) {
       throw new Error('Error updating message in Firestore');
     }

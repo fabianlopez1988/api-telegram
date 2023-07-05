@@ -8,7 +8,7 @@ import {
   Get,
 } from '@nestjs/common';
 import { FirestoreService } from '../firestore/firestore.service';
-import { Message } from './message.model';
+import { Message } from '../message.model';
 
 @Controller('messages')
 export class MessagesController {

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { MessagesController } from './messages.controller';
-import { FirestoreService } from 'src/firestore/firestore.service';
+import { MessagesController } from './controllers/messages.controller';
+import { FirestoreService } from 'src/messages/firestore/firestore.service';
 
 @Module({
   controllers: [MessagesController],
